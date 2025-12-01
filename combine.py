@@ -52,8 +52,8 @@ def renumber_ids_and_combine_jsonl(folder_path, output_filename="renumbered_comb
         print(f"创建或写入输出文件 '{output_file_path}' 时发生错误: {e}")
 
 if __name__ == "__main__":
-    folder_path = "/inspire/hdd/project/socialscience/xialingying041-summer-041/project/data/pdf_train_data"
-    output_filename = "/inspire/hdd/project/socialscience/xialingying041-summer-041/project/data/pdf_train_data/combined_data.jsonl"
+    folder_path = "./data/pdf_train_data"
+    output_filename = "./data/pdf_train_data/combined_data.jsonl"
 
     if not os.path.isdir(folder_path):
         print(f"错误: 提供的文件夹路径 '{folder_path}' 不存在或不是一个有效的文件夹。")

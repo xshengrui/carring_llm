@@ -21,7 +21,7 @@ class CotRewardFunction:
     __name__ = "CotRewardFunction"  # 添加类属性
     def __init__(self, references):
         self.scorer = BERTScorer(
-            model_type="/inspire/hdd/project/socialscience/xialingying041-summer-041/project/bert-zh-model",  # 直接使用本地路径作为 model_type
+            model_type="./bert-zh-model",  # 直接使用本地路径作为 model_type
             num_layers=12,                  # bert-base-chinese 的层数
         )
         self.reference_dict = {ref["question"]: ref["answer"] for ref in references}
@@ -103,7 +103,7 @@ class CotRewardFunction:
             return 0.0
 
 
-tokenizer = AutoTokenizer.from_pretrained("/inspire/hdd/project/socialscience/xialingying041-summer-041/textbooks/model_results/1k/weights/checkpoint-285")
+tokenizer = AutoTokenizer.from_pretrained("./textbooks/model_results/1k/weights/checkpoint-285")
 
 # 数据预处理
 def format_prompt(example):
@@ -117,15 +117,15 @@ def format_prompt(example):
 def train_rl_cot():
     # 加载微调后的模型
     model = AutoModelForCausalLM.from_pretrained(
-        "/inspire/hdd/project/socialscience/xialingying041-summer-041/textbooks/model_results/1k/weights/checkpoint-285",
+        "./textbooks/model_results/1k/weights/checkpoint-285",
         # torch_dtype=torch.bfloat16,
         device_map="auto",
         use_cache=False
     )
-    tokenizer = AutoTokenizer.from_pretrained("/inspire/hdd/project/socialscience/xialingying041-summer-041/textbooks/model_results/1k/weights/checkpoint-285")
+    tokenizer = AutoTokenizer.from_pretrained("./textbooks/model_results/1k/weights/checkpoint-285")
 
     # 加载数据集
-    dataset = load_dataset("json", data_files={"train": "/inspire/hdd/project/socialscience/xialingying041-summer-041/strategyE+SFT+GRPO+pdf+textbook/data.jsonl"})["train"]
+    dataset = load_dataset("json", data_files={"train": "./strategyE+SFT+GRPO+pdf+textbook/data.jsonl"})["train"]
     dataset = dataset.map(format_prompt)
 
     # 初始化奖励函数

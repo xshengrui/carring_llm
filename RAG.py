@@ -17,8 +17,8 @@ from langchain_core.documents import Document
 from typing import List
 
 # --- RAG 数据相关配置 ---
-RAG_DATA_PATH = "/inspire/hdd/project/socialscience/xialingying041-summer-041/pdf/output/extracted_texts"
-RAG_EMBEDDING_MODEL_NAME = "/inspire/hdd/project/socialscience/xialingying041-summer-041/models/models--BAAI--bge-small-zh-v1.5"
+RAG_DATA_PATH = "./pdf/output/extracted_texts"
+RAG_EMBEDDING_MODEL_NAME = "./models/models--BAAI--bge-small-zh-v1.5"
 RAG_CHUNK_SIZE = 500
 RAG_CHUNK_OVERLAP = 50
 RAG_SEARCH_K = 3

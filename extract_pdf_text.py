@@ -59,8 +59,8 @@ def process_all_pdfs(input_dir, output_dir):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--input_pdf_dir', type=str, default="/inspire/hdd/project/socialscience/xialingying041-summer-041/textbooks/pdf1")
-    parser.add_argument('--output_text_dir', type=str, default="/inspire/hdd/project/socialscience/xialingying041-summer-041/pdf/output/extracted_textbooks1")
+    parser.add_argument('--input_pdf_dir', type=str, default="./textbooks/pdf1")
+    parser.add_argument('--output_text_dir', type=str, default="./pdf/output/extracted_textbooks1")
     args = parser.parse_args()
 
     print(f"Input PDF directory: {args.input_pdf_dir}")
